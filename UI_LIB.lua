@@ -604,6 +604,16 @@ function RayfieldLibrary:Notify(NotificationSettings)
 		Notification.Name = NotificationSettings.Title or "Unknown Title"
 		Notification.Visible = true
 
+		-- STYLING (modified by n0sl33p)
+		Notification.BackgroundColor3 = SelectedTheme.Background
+		Notification.Title.Text = NotificationSettings.Title or "Unknown"
+		Notification.Title.TextTransparency = 1
+		Notification.Title.TextColor3 = SelectedTheme.TextColor
+		Notification.Description.Text = NotificationSettings.Content or "Unknown"
+		Notification.Description.TextTransparency = 1
+		Notification.Description.TextColor3 = SelectedTheme.TextColor
+		Notification.Icon.ImageColor3 = SelectedTheme.TextColor
+			
 		local blurlight = nil
 		if not false then
 			blurlight = Instance.new("DepthOfFieldEffect",game:GetService("Lighting"))
@@ -642,14 +652,6 @@ function RayfieldLibrary:Notify(NotificationSettings)
 				end)
 			end
 		end
-		Notification.BackgroundColor3 = SelectedTheme.Background
-		Notification.Title.Text = NotificationSettings.Title or "Unknown"
-		Notification.Title.TextTransparency = 1
-		Notification.Title.TextColor3 = SelectedTheme.TextColor
-		Notification.Description.Text = NotificationSettings.Content or "Unknown"
-		Notification.Description.TextTransparency = 1
-		Notification.Description.TextColor3 = SelectedTheme.TextColor
-		Notification.Icon.ImageColor3 = SelectedTheme.TextColor
 		if NotificationSettings.Image then
 			Notification.Icon.Image = "rbxassetid://"..tostring(NotificationSettings.Image) 
 		else
